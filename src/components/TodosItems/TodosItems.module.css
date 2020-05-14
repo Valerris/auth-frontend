@@ -1,0 +1,23 @@
+.list-wrapper-outer {
+	display: flex;
+}
+
+.list-wrapper {
+	background-color: #eee;
+	border-radius: 1.875rem;
+	padding: 2.5rem 1.25rem;
+	margin: auto;
+	flex: 1;
+}
+
+@media (min-width: 40em) {
+	.list-wrapper {
+		max-width: 50rem;
+	}
+}
+
+.list {
+	list-style: square;
+	font-size: 1.125rem;
+	padding-left: 1.125rem;
+}

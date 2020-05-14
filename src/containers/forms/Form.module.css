@@ -1,0 +1,23 @@
+.formWrapper {
+	display: flex;
+	height: 100%;
+	min-height: 100%;
+}
+
+.form {
+	margin: auto;
+	width: 100%;
+	background: #393939;
+	border-radius: 1.875rem;
+	padding: 2.5rem 1.25rem;
+}
+
+.form__field {
+	margin: 0 0 1.25rem;
+}
+
+@media (min-width: 40em) {
+	.form {
+		width: 25rem;
+	}
+}

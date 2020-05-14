@@ -1,0 +1,90 @@
+.button {
+	appearance: none;
+	font-size: 1.5rem;
+	line-height: 2.0625rem;
+	font-weight: bold;
+	color: #fff;
+	background: linear-gradient(99.42deg, #f8a170 14.73%, #ffcd61 97.52%);
+	padding: 0.625rem 3.5rem;
+	border-radius: 0.625rem;
+	width: 100%;
+	position: relative;
+	min-height: 3.5rem;
+}
+
+.button::before {
+	content: "";
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 70%;
+}
+
+.button::after {
+	content: "";
+	position: absolute;
+	display: block;
+	top: -0.45rem;
+	left: -0.45rem;
+	right: -0.45rem;
+	bottom: -0.45rem;
+}
+
+.button:hover {
+	box-shadow: 0 10px 40px 0 rgb(248, 161, 112, 0.2);
+}
+
+.button:active,
+.button:focus {
+	box-shadow: 0 0 0 1px #f8a170;
+}
+
+.button--close,
+.button--burger {
+	width: 2rem;
+	height: 2rem;
+	min-height: 2rem;
+	padding: 0;
+	font-size: 1rem;
+	line-height: 0;
+	text-indent: -9999px;
+}
+
+.button--close::before {
+	background-image: url("./x.svg");
+}
+
+.button--burger::before {
+	background-image: url("./burger.svg");
+	background-size: 50%;
+}
+
+.button--close-modal {
+	position: absolute;
+	right: 1.125rem;
+	top: 1.125rem;
+}
+
+button:disabled.button--loading,
+.button--loading {
+	cursor: progress;
+}
+
+.loader {
+	height: 1.35rem;
+	animation: slideDown 0.25s ease forwards;
+}
+
+@keyframes slideDown {
+	from {
+		transform: scaleY(0);
+	}
+	to {
+		transform: scaleY(1);
+	}
+}

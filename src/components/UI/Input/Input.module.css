@@ -1,0 +1,46 @@
+.label {
+	color: #e2e2e2;
+	margin: 0 0 0.45rem;
+	display: block;
+}
+
+.input {
+	color: #999999;
+	background-color: rgb(223, 222, 222, 0.1);
+	font-size: inherit;
+	line-height: 1.375rem;
+	padding: 1rem;
+	width: 100%;
+	border-radius: 0.625rem;
+}
+
+.input:focus {
+	color: #fff;
+	box-shadow: 0 0 0 2px #393939, 0 0 0 4px rgb(223, 222, 222, 0.2);
+}
+
+.input__error {
+	color: hsla(4, 80%, 55%, 0.8);
+	padding: 0.5rem 0;
+	animation: slideDown 0.25s ease forwards;
+	will-change: height;
+}
+
+.input--invalid {
+	box-shadow: 0 0 0 2px #393939, 0 0 0 4px hsla(4, 85%, 50%, 1);
+	background-color: hsla(4, 80%, 55%, 0.8);
+}
+
+@keyframes slideDown {
+	0% {
+		transform: scaleY(0);
+		height: 0;
+	}
+	99% {
+		height: 2rem;
+	}
+	100% {
+		height: auto;
+		transform: scaleY(1);
+	}
+}

@@ -1,0 +1,14 @@
+.menu__item {
+	border-radius: 0.625rem;
+}
+
+.menu__item:hover {
+	background-color: #dfdede;
+}
+
+.menu__link {
+	display: block;
+	padding: 1rem 0.875rem;
+	font-size: 1.25rem;
+	line-height: 1.6875rem;
+}

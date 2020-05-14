@@ -1,0 +1,8 @@
+.toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.25rem;
+	background: rgba(203, 203, 212, 0.2);
+	border-radius: 0 0 0.25rem 0.25rem;
+}
