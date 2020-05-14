@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import TodosItems from "../../components/TodosItems/TodosItems";
+import TodosForm from "../forms/Todos/Todos";
 import * as actions from "../../store/actions/index";
 
 const Todos = (props) => {
@@ -17,7 +18,16 @@ const Todos = (props) => {
 		onInitTodos(token);
 	}, [onInitTodos, token]);
 
-	const UI = <TodosItems todos={todos} />;
+	const postTask = (task) => {
+		return dispatch(actions.postTask(task, token));
+	};
+
+	const UI = (
+		<div>
+			<TodosForm postTask={postTask} />
+			<TodosItems todos={todos} />
+		</div>
+	);
 
 	return UI;
 };

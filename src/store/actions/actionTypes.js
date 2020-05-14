@@ -13,6 +13,7 @@ export const PROFILE_EDIT_FAILED = "PROFILE_EDIT_FAILED";
 export const TASKS_LOADING = "TASKS_LOADING";
 export const TASKS_SUCCESS = "TASKS_SUCCESS";
 export const TASKS_FAILED = "TASKS_FAILED";
+export const TASK_ADD_SUCCESS = "TASK_ADD_SUCCESS";
 
 export const ERROR_PUSH = "ERROR_PUSH";
 export const ERROR_CANCEL = "ERROR_CANCEL";
