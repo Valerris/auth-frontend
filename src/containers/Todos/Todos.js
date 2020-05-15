@@ -6,11 +6,11 @@ import * as actions from "../../store/actions/index";
 
 const Todos = (props) => {
 	const { token } = useSelector((state) => state.auth);
-	const { todos } = useSelector((state) => state.todos);
+	const { todos, loading } = useSelector((state) => state.todos);
 	const dispatch = useDispatch();
 
 	const onInitTodos = useCallback(
-		(token) => dispatch(actions.initTasks(token)),
+		(token) => dispatch(actions.getTasks(token)),
 		[dispatch]
 	);
 
@@ -18,14 +18,14 @@ const Todos = (props) => {
 		onInitTodos(token);
 	}, [onInitTodos, token]);
 
-	const postTask = (task) => {
-		return dispatch(actions.postTask(task, token));
+	const addTask = (task) => {
+		return dispatch(actions.addTask(task, token));
 	};
 
 	const UI = (
 		<div>
-			<TodosForm postTask={postTask} />
-			<TodosItems todos={todos} />
+			<TodosForm addTask={addTask} loading={loading} />
+			<TodosItems todos={todos} loading={loading} />
 		</div>
 	);
 

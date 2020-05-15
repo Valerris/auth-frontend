@@ -1,23 +1,28 @@
 import * as actionTypes from "./actionTypes";
 
 /**
- * Init tasks
+ * General
  */
-const tasksLoading = () => ({
-	type: actionTypes.TASKS_LOADING,
+
+const taskLoading = () => ({
+	type: actionTypes.TASK_LOADING,
 });
 
-const tasksSuccess = (payload) => ({
-	type: actionTypes.TASKS_SUCCESS,
+const taskFailed = () => ({
+	type: actionTypes.TASK_FAILED,
+});
+
+/**
+ * Get tasks
+ */
+
+const taskGetSuccess = (payload) => ({
+	type: actionTypes.TASK_GET_SUCCESS,
 	todos: payload,
 });
 
-const tasksFailed = () => ({
-	type: actionTypes.TASKS_FAILED,
-});
-
-export const initTasks = (token) => async (dispatch) => {
-	dispatch(tasksLoading());
+export const getTasks = (token) => async (dispatch) => {
+	dispatch(taskLoading());
 
 	try {
 		const response = await fetch("http://localhost:8080/todos", {
@@ -28,11 +33,16 @@ export const initTasks = (token) => async (dispatch) => {
 
 		const data = await response.json();
 
-		dispatch(tasksSuccess(data.tasks));
+		dispatch(taskGetSuccess(data.tasks));
 	} catch (error) {
 		console.log(error);
 
-		dispatch(tasksFailed());
+		dispatch(taskFailed());
+
+		return {
+			status: "error",
+			body: error.message,
+		};
 	}
 };
 
@@ -41,12 +51,13 @@ export const initTasks = (token) => async (dispatch) => {
  * POST task
  */
 
-const taskAddSuccess = () => ({
+const taskAddSuccess = (task) => ({
 	type: actionTypes.TASK_ADD_SUCCESS,
+	task: task,
 });
 
-export const postTask = (task, token) => async (dispatch) => {
-	dispatch(tasksLoading());
+export const addTask = (task, token) => async (dispatch) => {
+	dispatch(taskLoading());
 
 	try {
 		const response = await fetch("http://localhost:8080/todos/task", {
@@ -58,21 +69,38 @@ export const postTask = (task, token) => async (dispatch) => {
 			body: JSON.stringify(task),
 		});
 
-		if (!response.ok) {
-			throw new Error("Can't save task.");
-		} else {
-			dispatch(taskAddSuccess());
-			dispatch(initTasks(token));
-		}
-
 		const data = await response.json();
+
+		dispatch(taskAddSuccess(data.task));
 
 		return data;
 	} catch (error) {
 		console.log(error);
 
-		dispatch(tasksFailed());
+		dispatch(taskFailed());
+
+		return {
+			status: "error",
+			body: error.message,
+		};
 	}
 };
 
-export const toggleCompleted = (id) => {};
+export const toggleTaskComplition = (id, token) => async (dispatch) => {
+	try {
+		const response = await fetch(`http://localhost:8080/todos/task/${id}`, {
+			headers: {
+				"Content-Type": "application/json; charset=utf-8",
+				Authorization: `Bearer ${token}`,
+			},
+			method: "PATCH",
+		});
+	} catch (error) {
+		console.log(error);
+
+		return {
+			status: "error",
+			body: error.message,
+		};
+	}
+};

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import updateObject from "../../../utils/updateObj";
 import collectData from "../../../utils/forms/collectData";
 import clearForm from "../../../utils/forms/clearForm";
-import { required, length, email } from "../../../utils/forms/validators";
+import { required } from "../../../utils/forms/validators";
 import fieldValidation from "../../../utils/forms/fieldValidation";
 import formValidation from "../../../utils/forms/formValidation";
 import classesForm from "../Form.module.css";
@@ -78,7 +77,7 @@ class TodosForm extends Component {
 
 		const formData = collectData(this.getControls(), this.state.controls);
 
-		const result = await this.props.postTask(formData);
+		const result = await this.props.addTask(formData);
 
 		result && console.log(result);
 
