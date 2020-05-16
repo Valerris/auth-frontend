@@ -29,6 +29,15 @@ const taskAddSuccess = (state, { task }) => {
 	return updateObject(state, { todos: newTodos, loading: false });
 };
 
+const taskToggleComplitionSuccess = (state, { id }) => {
+	const tasks = [...state.todos];
+	const taskIdx = tasks.findIndex((el) => el._id === id);
+
+	tasks[taskIdx].completed = !tasks[taskIdx].completed;
+
+	return updateObject(state, { todos: tasks });
+};
+
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case actionTypes.TASK_LOADING:
@@ -39,6 +48,8 @@ const reducer = (state = initialState, action) => {
 			return taskGetSuccess(state, action);
 		case actionTypes.TASK_ADD_SUCCESS:
 			return taskAddSuccess(state, action);
+		case actionTypes.TASK_TOGGLE_COMPLETION_SUCCESS:
+			return taskToggleComplitionSuccess(state, action);
 		default:
 			return state;
 	}

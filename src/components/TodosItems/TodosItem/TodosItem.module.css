@@ -1,1 +1,7 @@
+.list__item {
+	margin-bottom: 0.75rem;
+}
 
+.list__item-inner {
+	cursor: pointer;
+}

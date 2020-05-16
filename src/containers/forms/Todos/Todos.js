@@ -82,8 +82,14 @@ class TodosForm extends Component {
 		result && console.log(result);
 
 		if (result && result.status === "success") {
-			clearForm(this.getControls(), this.state.controls);
+			const updatedControls = clearForm(
+				this.getControls(),
+				this.state.controls
+			);
+			this.setState({ controls: updatedControls, formIsValid: false });
 		} else if (result && result.status === "error") {
+			console.log("Error block");
+
 			this.fillErrorFields(result.body.errors);
 		}
 	};

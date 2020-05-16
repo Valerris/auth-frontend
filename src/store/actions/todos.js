@@ -86,6 +86,16 @@ export const addTask = (task, token) => async (dispatch) => {
 	}
 };
 
+/**
+ *
+ * Toggle task complition
+ */
+
+const taskToggleComplitionSuccess = (id) => ({
+	type: actionTypes.TASK_TOGGLE_COMPLETION_SUCCESS,
+	id,
+});
+
 export const toggleTaskComplition = (id, token) => async (dispatch) => {
 	try {
 		const response = await fetch(`http://localhost:8080/todos/task/${id}`, {
@@ -95,6 +105,14 @@ export const toggleTaskComplition = (id, token) => async (dispatch) => {
 			},
 			method: "PATCH",
 		});
+
+		const data = await response.json();
+
+		dispatch(taskToggleComplitionSuccess(id));
+
+		console.log(data);
+
+		return data;
 	} catch (error) {
 		console.log(error);
 
