@@ -110,8 +110,6 @@ export const toggleTaskComplition = (id, token) => async (dispatch) => {
 
 		dispatch(taskToggleComplitionSuccess(id));
 
-		console.log(data);
-
 		return data;
 	} catch (error) {
 		console.log(error);
