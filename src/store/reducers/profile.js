@@ -3,7 +3,8 @@ import updateObj from "../../utils/updateObj";
 
 const initialState = {
 	profileInfo: null,
-	loading: false,
+	loadingInfo: false,
+	loadingEdit: false,
 };
 
 const profileInfoLoading = (state, action) =>
@@ -14,28 +15,28 @@ const profileInfoLoading = (state, action) =>
 const profileInfoSuccess = (state, { profileInfo }) =>
 	updateObj(state, {
 		profileInfo,
-		loading: false,
+		loadingInfo: false,
 	});
 
 const profileInfoFailed = (state, action) =>
 	updateObj(state, {
-		loading: false,
+		loadingInfo: false,
 	});
 
 const profileEditLoading = (state, action) =>
 	updateObj(state, {
-		loading: true,
+		loadingEdit: true,
 	});
 
 const profileEditSuccess = (state, { profileInfo }) =>
 	updateObj(state, {
 		profileInfo,
-		loading: false,
+		loadingEdit: false,
 	});
 
 const profileEditFailed = (state, action) =>
 	updateObj(state, {
-		loading: false,
+		loadingEdit: false,
 	});
 
 const reducer = (state = initialState, action) => {

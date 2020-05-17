@@ -5,14 +5,15 @@
 .profileInfo {
 	background-color: #eee;
 	border-radius: 1.875rem;
-	padding: 2.5rem 1.25rem;
+	padding: 2.5rem 1rem;
 	font-size: 1.125rem;
-	display: flex;
 	margin: auto;
 }
 
 @media (min-width: 40em) {
 	.profileInfo {
+		display: flex;
+		padding: 2.5rem 1.25rem;
 		max-width: 50rem;
 	}
 }
@@ -26,6 +27,8 @@
 	height: 9rem;
 	border-radius: 50%;
 	background-color: hsl(240, 1%, 78%);
+	overflow: hidden;
+	position: relative;
 }
 
 @media (min-width: 40em) {
@@ -33,6 +36,13 @@
 		width: 12rem;
 		height: 12rem;
 	}
+}
+
+.profileInfo__pic-img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .profileInfo__label {

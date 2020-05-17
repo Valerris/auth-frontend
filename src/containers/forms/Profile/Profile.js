@@ -10,13 +10,9 @@ import formValidation from "../../../utils/forms/formValidation";
 import classesForm from "../Form.module.css";
 import classesProfileForm from "./ProfileForm.module.css";
 
+let fileInputVal = null;
+
 class ProfileForm extends Component {
-	constructor(props) {
-		super(props);
-
-		this.formElRef = createRef();
-	}
-
 	state = {
 		controls: {
 			username: {
@@ -31,7 +27,7 @@ class ProfileForm extends Component {
 				touched: false,
 				focused: false,
 				valid: false,
-				validators: [required, length({ min: 3 })],
+				validators: [length({ min: 3 })],
 				error: "Enter your username.",
 			},
 			email: {
@@ -46,14 +42,14 @@ class ProfileForm extends Component {
 				touched: false,
 				focused: false,
 				valid: false,
-				validators: [required, email],
+				validators: [email],
 				error: "Enter a valid email.",
 			},
-			profilePic: {
+			image: {
 				type: "input",
 				config: {
 					type: "file",
-					name: "profilePic",
+					name: "image",
 					placeholder: "Choose your profile pic",
 					value: "",
 				},
@@ -75,7 +71,11 @@ class ProfileForm extends Component {
 	};
 
 	changeHandler = (e, ctrl) => {
+		if (e.target.type === "file") {
+			fileInputVal = e.target.files[0];
+		}
 		const value = e.target.value;
+
 		let fieldValidity = true;
 
 		if (this.state.controls[ctrl].validators) {
@@ -109,15 +109,17 @@ class ProfileForm extends Component {
 
 		if (!this.state.formIsValid) return console.log("Incorrect form fields.");
 
-		// const formData = collectData(this.getControls(), this.state.controls);
+		const formData = collectData(this.getControls(), this.state.controls);
 
-		// console.log(formData);
+		formData.image = fileInputVal;
 
-		const result = await this.props.postEdit(this.formElRef);
+		const result = await this.props.postEdit(formData);
 
-		console.log(result);
+		result && console.log(result);
 
-		// result && console.log(result);
+		const updatedControls = clearForm(this.getControls(), this.state.controls);
+
+		this.setState({ controls: updatedControls, formIsValid: false });
 
 		// if (result && result.status === "success") {
 		// 	if (this.props.isSignupForm) {
@@ -156,7 +158,6 @@ class ProfileForm extends Component {
 		const form = (
 			<div className={classesForm.formWrapper}>
 				<form
-					ref={this.formElRef}
 					className={[classesForm.form, classesProfileForm.form].join(" ")}
 					onSubmit={this.submitHandler}
 					encType="multipart/form-data"
@@ -183,7 +184,7 @@ class ProfileForm extends Component {
 						</div>
 					))}
 					<div>
-						<Button type="submit" loading={this.props.loading}>
+						<Button type="submit" loading={this.props.loadingEdit}>
 							Submit
 						</Button>
 					</div>

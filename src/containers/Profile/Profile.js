@@ -13,8 +13,8 @@ const Profile = (props) => {
 		dispatch(actions.profileInfo(token));
 	}, [dispatch, token]);
 
-	const postEdit = async (form) => {
-		dispatch(actions.profileEdit(form, token));
+	const postEdit = async (formData) => {
+		dispatch(actions.profileEdit(formData, token));
 	};
 
 	return <ProfileInfo profileInfo={profileInfo} postEdit={postEdit} />;
