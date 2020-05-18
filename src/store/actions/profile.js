@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes";
+import { server_url } from "../../config/config";
 
 /**
  * // Profile GET
@@ -11,7 +12,7 @@ const profileInfoSuccess = (payload) => {
 	if (payload.profile.imageUrl) {
 		const url = payload.profile.imageUrl.replace(/\\+/g, "/");
 
-		payload.profile.imageUrl = `http://localhost:8080/${url}`;
+		payload.profile.imageUrl = `${server_url}${url}`;
 	}
 
 	return {
@@ -28,7 +29,7 @@ export const profileInfo = (token) => async (dispatch) => {
 	dispatch(profileInfoLoading());
 
 	try {
-		const response = await fetch("http://localhost:8080/profile/info", {
+		const response = await fetch(server_url + "profile/info", {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -54,7 +55,7 @@ const profileEditSuccess = (payload) => {
 	if (payload.profile.imageUrl) {
 		const url = payload.profile.imageUrl.replace(/\\+/g, "/");
 
-		payload.profile.imageUrl = `http://localhost:8080/${url}`;
+		payload.profile.imageUrl = `${server_url}${url}`;
 	}
 
 	return {
@@ -81,7 +82,7 @@ export const profileEdit = (formData, token) => async (dispatch) => {
 	// }
 
 	try {
-		const response = await fetch("http://localhost:8080/profile/edit", {
+		const response = await fetch(server_url + "profile/edit", {
 			method: "PATCH",
 			headers: {
 				Authorization: `Bearer ${token}`,

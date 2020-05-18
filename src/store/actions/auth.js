@@ -1,7 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import { errorPush } from "./error";
-
-const serverPath = "http://localhost:8080";
+import { server_url } from "../../config/config";
 
 const authLoading = () => ({
 	type: actionTypes.AUTH_LOADING,
@@ -56,7 +55,7 @@ export const auth = (formData, isSignup) => async (dispatch) => {
 	let routePath = isSignup ? "/auth/signup" : "/auth/login";
 	const method = isSignup ? "PUT" : "POST";
 
-	const URL = `${serverPath}${routePath}`;
+	const URL = `${server_url}${routePath}`;
 
 	try {
 		const response = await fetch(URL, {

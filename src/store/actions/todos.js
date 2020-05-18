@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes";
+import { server_url } from "../../config/config";
 
 /**
  * General
@@ -25,7 +26,7 @@ export const getTasks = (token) => async (dispatch) => {
 	dispatch(taskLoading());
 
 	try {
-		const response = await fetch("http://localhost:8080/todos", {
+		const response = await fetch(server_url + "todos", {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -60,7 +61,7 @@ export const addTask = (task, token) => async (dispatch) => {
 	dispatch(taskLoading());
 
 	try {
-		const response = await fetch("http://localhost:8080/todos/task", {
+		const response = await fetch(server_url + "todos/task", {
 			headers: {
 				"Content-Type": "application/json; charset=utf-8",
 				Authorization: `Bearer ${token}`,
@@ -98,7 +99,7 @@ const taskToggleComplitionSuccess = (id) => ({
 
 export const toggleTaskComplition = (id, token) => async (dispatch) => {
 	try {
-		const response = await fetch(`http://localhost:8080/todos/task/${id}`, {
+		const response = await fetch(`${server_url}todos/task/${id}`, {
 			headers: {
 				"Content-Type": "application/json; charset=utf-8",
 				Authorization: `Bearer ${token}`,
