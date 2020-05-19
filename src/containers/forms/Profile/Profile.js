@@ -1,10 +1,10 @@
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import updateObject from "../../../utils/updateObj";
 import collectData from "../../../utils/forms/collectData";
 import clearForm from "../../../utils/forms/clearForm";
-import { required, length, email } from "../../../utils/forms/validators";
+import { length, email } from "../../../utils/forms/validators";
 import fieldValidation from "../../../utils/forms/fieldValidation";
 import formValidation from "../../../utils/forms/formValidation";
 import classesForm from "../Form.module.css";
