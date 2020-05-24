@@ -181,11 +181,11 @@ class AuthForm extends Component {
 	submitHandler = async (e) => {
 		e.preventDefault();
 
+		if (!this.state.formIsValid) return console.log("Incorrect form fields.");
+
 		this.setState({
 			loading: true,
 		});
-
-		if (!this.state.formIsValid) return console.log("Incorrect form fields.");
 
 		const formData = collectData(this.getControls(), this.state.controls);
 
@@ -194,15 +194,16 @@ class AuthForm extends Component {
 		result && console.log(result);
 
 		if (result && result.status === "success") {
-			// Loading will be false on mount
-			// this.setState({ loading: false });
+			// Loading will be false on mount if success
 
 			if (this.props.isSignupForm) {
-				return this.props.history.push("/login");
+				return this.props.history.replace("/login");
 			} else {
 				return this.props.history.replace("/home");
 			}
 		} else if (result && result.status === "error") {
+			this.setState({ loading: false });
+
 			this.fillErrorFields(result.body.errors);
 		}
 	};

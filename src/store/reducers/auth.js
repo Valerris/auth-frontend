@@ -5,25 +5,13 @@ const initialState = {
 	isAuth: false,
 	token: null,
 	tokenExp: null,
-	loading: false,
 };
-
-const authLoading = (state, action) =>
-	updateObject(state, {
-		loading: true,
-	});
 
 const authSuccess = (state, { token, tokenExp }) =>
 	updateObject(state, {
 		token,
 		tokenExp,
-		loading: false,
 		isAuth: true,
-	});
-
-const authFailed = (state, action) =>
-	updateObject(state, {
-		loading: false,
 	});
 
 const authLogout = (state, action) =>
@@ -35,12 +23,8 @@ const authLogout = (state, action) =>
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case actionTypes.AUTH_LOADING:
-			return authLoading(state, action);
 		case actionTypes.AUTH_SUCCESS:
 			return authSuccess(state, action);
-		case actionTypes.AUTH_FAILED:
-			return authFailed(state, action);
 		case actionTypes.AUTH_LOGOUT:
 			return authLogout(state, action);
 		default:

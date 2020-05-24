@@ -2,18 +2,10 @@ import * as actionTypes from "./actionTypes";
 import { errorPush } from "./error";
 import config from "../../config/config";
 
-const authLoading = () => ({
-	type: actionTypes.AUTH_LOADING,
-});
-
 const authSuccess = ({ token, tokenExp }) => ({
 	type: actionTypes.AUTH_SUCCESS,
 	token,
 	tokenExp,
-});
-
-const authFailed = () => ({
-	type: actionTypes.AUTH_FAILED,
 });
 
 export const authLogout = () => {
@@ -50,8 +42,6 @@ export const authCheck = () => (dispatch) => {
 };
 
 export const auth = (formData, isSignup) => async (dispatch) => {
-	dispatch(authLoading());
-
 	let routePath = isSignup ? "auth/signup" : "auth/login";
 	const method = isSignup ? "PUT" : "POST";
 
@@ -97,8 +87,6 @@ export const auth = (formData, isSignup) => async (dispatch) => {
 			body: json,
 		};
 	} catch (e) {
-		dispatch(authFailed());
-
 		if (e.name === "TypeError") {
 			dispatch(errorPush(e));
 			return;
