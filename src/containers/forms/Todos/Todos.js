@@ -30,6 +30,7 @@ class TodosForm extends Component {
 			},
 		},
 		formIsValid: false,
+		loading: false,
 	};
 
 	inputBlurHandler = (ctrl) => {
@@ -75,6 +76,8 @@ class TodosForm extends Component {
 
 		if (!this.state.formIsValid) return console.log("Incorrect form fields.");
 
+		this.setState({ loading: true });
+
 		const formData = collectData(this.getControls(), this.state.controls);
 
 		const result = await this.props.addTask(formData);
@@ -86,10 +89,12 @@ class TodosForm extends Component {
 				this.getControls(),
 				this.state.controls
 			);
-			this.setState({ controls: updatedControls, formIsValid: false });
+			this.setState({
+				controls: updatedControls,
+				formIsValid: false,
+				loading: false,
+			});
 		} else if (result && result.status === "error") {
-			console.log("Error block");
-
 			this.fillErrorFields(result.body.errors);
 		}
 	};
@@ -105,6 +110,7 @@ class TodosForm extends Component {
 		this.setState({
 			controls: updatedControls,
 			formIsValid: false,
+			loading: false,
 		});
 	}
 
@@ -145,7 +151,7 @@ class TodosForm extends Component {
 						</div>
 					))}
 					<div>
-						<Button type="submit" loading={this.props.loading}>
+						<Button type="submit" loading={this.state.loading}>
 							Submit
 						</Button>
 					</div>
