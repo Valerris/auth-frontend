@@ -58,8 +58,6 @@ const taskAddSuccess = (task) => ({
 });
 
 export const addTask = (task, token) => async (dispatch) => {
-	dispatch(taskLoading());
-
 	try {
 		const response = await fetch(config.server_url + "todos/task", {
 			headers: {
@@ -77,8 +75,6 @@ export const addTask = (task, token) => async (dispatch) => {
 		return data;
 	} catch (error) {
 		console.log(error);
-
-		dispatch(taskFailed());
 
 		return {
 			status: "error",

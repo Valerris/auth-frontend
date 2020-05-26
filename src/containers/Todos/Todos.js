@@ -24,7 +24,7 @@ const Todos = (props) => {
 
 	const UI = (
 		<div>
-			<TodosForm addTask={addTask} loading={loading} />
+			<TodosForm addTask={addTask} />
 			<TodosItems todos={todos} loading={loading} />
 		</div>
 	);
