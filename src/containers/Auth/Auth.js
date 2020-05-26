@@ -18,7 +18,6 @@ class Auth extends Component {
 				<AuthForm
 					isSignupForm={this.props.location.pathname === "/signup"}
 					postAuth={this.props.onAuth}
-					loading={this.props.authLoading}
 				/>
 			</Fragment>
 		);
@@ -29,7 +28,6 @@ class Auth extends Component {
 
 const mapStateToProps = (state) => ({
 	isAuth: state.auth.isAuth,
-	authLoading: state.auth.loading,
 	err: state.error.error,
 });
 

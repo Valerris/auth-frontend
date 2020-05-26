@@ -89,7 +89,6 @@ export const auth = (formData, isSignup) => async (dispatch) => {
 	} catch (e) {
 		if (e.name === "TypeError") {
 			dispatch(errorPush(e));
-			return;
 		}
 
 		return {

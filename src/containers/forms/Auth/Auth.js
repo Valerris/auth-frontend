@@ -191,7 +191,7 @@ class AuthForm extends Component {
 
 		const result = await this.props.postAuth(formData, this.props.isSignupForm);
 
-		result && console.log(result);
+		result && console.log("[Result]: ", result);
 
 		if (result && result.status === "success") {
 			// Loading will be false on mount if success
@@ -204,7 +204,9 @@ class AuthForm extends Component {
 		} else if (result && result.status === "error") {
 			this.setState({ loading: false });
 
-			this.fillErrorFields(result.body.errors);
+			result.body &&
+				result.body.errors &&
+				this.fillErrorFields(result.body.errors);
 		}
 	};
 
