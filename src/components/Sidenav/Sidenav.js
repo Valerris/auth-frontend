@@ -21,9 +21,13 @@ const linksAuth = [
 ];
 
 const links = [
-	{
+	{   
 		href: "/home",
 		name: "Home",
+	},
+	{
+		href: "/products",
+		name: "Products"
 	},
 	{
 		href: "/profile",
@@ -32,7 +36,7 @@ const links = [
 	{
 		href: "/logout",
 		name: "Logout",
-	},
+	},	
 ];
 
 const sidenav = ({ isAuth, clicked }) => {

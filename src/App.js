@@ -8,6 +8,7 @@ import Logout from "./containers/Auth/Logout";
 import Toolbar from "./containers/Toolbar/Toolbar";
 import Layout from "./hoc/Layout/Layout";
 import Profile from "./containers/Profile/Profile";
+import Products from "./containers/Products/Products";
 
 class App extends Component {
 	componentDidMount() {
@@ -28,6 +29,7 @@ class App extends Component {
 				<Switch>
 					<Route path="/logout" component={Logout} />
 					<Route path="/profile" component={Profile} />
+					<Route path="/products" component={Products} />
 					<Route path="/home" component={Main} />
 					<Redirect to="/home" />
 				</Switch>
