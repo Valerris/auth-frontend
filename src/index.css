@@ -12,7 +12,7 @@
 }
 
 body {
-	font-family: "Uni Neue", "Helvetica Neue", sans-serif;
+	font-family: "Rubik", "Helvetica Neue", sans-serif;
 	font-size: inherit;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -95,6 +95,15 @@ p {
 
 p:first-child {
 	margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Lato, sans-serif;
 }
 
 h1 {

@@ -21,22 +21,22 @@ const linksAuth = [
 ];
 
 const links = [
-	{   
+	{
 		href: "/home",
 		name: "Home",
 	},
 	{
 		href: "/products",
-		name: "Products"
+		name: "Продукты",
 	},
 	{
 		href: "/profile",
-		name: "Profile",
+		name: "Профиль",
 	},
 	{
 		href: "/logout",
 		name: "Logout",
-	},	
+	},
 ];
 
 const sidenav = ({ isAuth, clicked }) => {
