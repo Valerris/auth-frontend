@@ -1,27 +1,39 @@
-// import React from "react";
+import React from "react";
+// import * as ReactRedux from "../react-redux-hooks";
+import * as ReactRedux from "react-redux";
 
-// import { configure, shallow } from "enzyme";
-// import Adapter from "enzyme-adapter-react-16";
+import { configure, shallow } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 
-// import Todos from "../Todos";
-// import TodosItems from "../../../components/TodosItems/TodosItems";
+import Todos from "../Todos";
+import TodosItems from "../../../components/TodosItems/TodosItems";
 
-// configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() });
 
-// describe("Todos container: ", () => {
-// 	let wrapper = null;
+describe("Todos container: ", () => {
+	let wrapper, useSelectorSpy, useDispatchSpy;
 
-// 	beforeEach(() => {
-// 		wrapper = shallow(<Todos token />);
-// 	});
+	beforeEach(() => {
+		useSelectorSpy = jest
+			.spyOn(ReactRedux, "useSelector")
+			.mockImplementation((state) => ({
+				auth: {
+					token: "token",
+				},
+				todos: {
+					todos: [],
+					loading: false,
+				},
+			}));
 
-// 	it("should render TodosItems when receiving todos", () => {
-// 		let wrapper = shallow(<Todos />);
+		useDispatchSpy = jest
+			.spyOn(ReactRedux, "useDispatch")
+			.mockImplementation(() => {});
 
-// 		wrapper.setProps({
-// 			todos: [{ _id: 1, task: "Test task", completed: false }],
-// 		});
+		wrapper = shallow(<Todos />);
+	});
 
-// 		expect(wrapper.find(TodosItems)).toHaveLength(1);
-// 	});
-// });
+	test("should render TodosItems when receiving todos", () => {
+		expect(wrapper.find(TodosItems)).toHaveLength(1);
+	});
+});
