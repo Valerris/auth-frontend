@@ -6,7 +6,9 @@ const productItem = ({ product }) => {
 	const productItem = (
 		<li className={classes.product__item}>
 			<Link className={classes.product__link} to={product.href}>
-				{product.name}
+				<p>{product.name}</p>
+				<p>{product.description}</p>
+				<p>{product.price}</p>
 			</Link>
 		</li>
 	);

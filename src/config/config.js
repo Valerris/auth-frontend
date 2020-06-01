@@ -3,5 +3,5 @@
 // };
 
 export default {
-	server_url: "http://localhost:8080/",
+	server_url: "https://vlrrs-auth-api.herokuapp.com/",
 };
