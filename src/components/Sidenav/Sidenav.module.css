@@ -11,6 +11,9 @@
 
 .menu__head {
 	display: flex;
+	padding: 0 0 0.75rem;
+	margin: 0 0 0.25rem;
+	border-bottom: 1px solid #393939;
 }
 
 .menu__head > h4 {
