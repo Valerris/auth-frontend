@@ -26,17 +26,17 @@ const ProfileInfo = ({ profileInfo, postEdit }) => {
 							<img
 								className={classes["profileInfo__pic-img"]}
 								src={profileInfo.profile.imageUrl}
-								alt={`Profile pic ${profileInfo.profile.username}`}
+								alt={`Аватар ${profileInfo.profile.username}`}
 							/>
 						)}
 					</div>
 
-					<div className={classes.profileInfo__label}>User name</div>
+					<div className={classes.profileInfo__label}>Имя</div>
 
 					<div className={classes.profileInfo__value}>
 						{profileInfo.profile.username}
 					</div>
-					<div className={classes.profileInfo__label}>User email</div>
+					<div className={classes.profileInfo__label}>Email</div>
 					<div className={classes.profileInfo__value}>
 						{profileInfo.profile.email}
 					</div>
@@ -47,13 +47,13 @@ const ProfileInfo = ({ profileInfo, postEdit }) => {
 			</div>
 		</div>
 	) : (
-		<p>No profile info.</p>
+		<p>Аватар профиля не загружен.</p>
 	);
 
 	return (
 		<div>
-			<h1>Profile</h1>
-			<div>{loadingInfo ? "Loading..." : UI}</div>
+			<h1>Профиль</h1>
+			<div>{loadingInfo ? "Загрузка..." : UI}</div>
 		</div>
 	);
 };

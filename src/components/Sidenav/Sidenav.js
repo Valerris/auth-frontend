@@ -8,22 +8,22 @@ import classes from "./Sidenav.module.css";
 const linksAuth = [
 	{
 		href: "/home",
-		name: "Home",
+		name: "Главная",
 	},
 	{
 		href: "/login",
-		name: "Login",
+		name: "Логин",
 	},
 	{
 		href: "/signup",
-		name: "Signup",
+		name: "Регистрация",
 	},
 ];
 
 const links = [
 	{
 		href: "/home",
-		name: "Home",
+		name: "Главная",
 	},
 	{
 		href: "/products",
@@ -35,7 +35,7 @@ const links = [
 	},
 	{
 		href: "/logout",
-		name: "Logout",
+		name: "Выйти",
 	},
 ];
 

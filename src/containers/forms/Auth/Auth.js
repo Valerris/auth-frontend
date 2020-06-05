@@ -16,60 +16,60 @@ const SIGNUP_FORM = {
 		config: {
 			type: "text",
 			name: "username",
-			placeholder: "Enter your username",
+			placeholder: "Введите юзернейм",
 			value: "",
 		},
-		labelName: "User name",
+		labelName: "Юзернейм",
 		touched: false,
 		focused: false,
 		valid: false,
 		validators: [required],
-		error: "Provide your username.",
+		error: "Введите ваш юзернейм.",
 	},
 	email: {
 		type: "input",
 		config: {
 			type: "text",
 			name: "email",
-			placeholder: "Enter your email",
+			placeholder: "Введите ваш email",
 			value: "",
 		},
-		labelName: "Email",
+		labelName: "Почта",
 		touched: false,
 		focused: false,
 		valid: false,
 		validators: [required, email],
-		error: "Enter a valid email.",
+		error: "Введите корректный email.",
 	},
 	password: {
 		type: "input",
 		config: {
 			type: "password",
 			name: "password",
-			placeholder: "Enter a password",
+			placeholder: "Введите пароль",
 			value: "",
 		},
-		labelName: "Password",
+		labelName: "Пароль",
 		touched: false,
 		focused: false,
 		valid: false,
 		validators: [required, length({ min: 5 })],
-		error: "Enter a password at least 5 characters long.",
+		error: "Введите пароль длиной не менее 5 символов.",
 	},
 	confirmPassword: {
 		type: "input",
 		config: {
 			type: "password",
 			name: "confirmPassword",
-			placeholder: "Repeat your password",
+			placeholder: "Повторите ваш пароль",
 			value: "",
 		},
-		labelName: "Confirm password",
+		labelName: "Подтверждение пароля",
 		touched: false,
 		focused: false,
 		valid: false,
 		validators: [required, length({ min: 5 })],
-		error: "Passwords should match.",
+		error: "Пароли должны совпадать.",
 	},
 };
 
@@ -79,30 +79,30 @@ const LOGIN_FORM = {
 		config: {
 			type: "text",
 			name: "email",
-			placeholder: "Enter your email",
+			placeholder: "Введите ваш email",
 			value: "",
 		},
-		labelName: "Email",
+		labelName: "Почта",
 		touched: false,
 		focused: false,
 		valid: false,
 		validators: [required, email],
-		error: "Enter a valid email.",
+		error: "Введите корректный email.",
 	},
 	password: {
 		type: "input",
 		config: {
 			type: "password",
 			name: "password",
-			placeholder: "Enter a password",
+			placeholder: "Введите пароль",
 			value: "",
 		},
-		labelName: "Password",
+		labelName: "Пароль",
 		touched: false,
 		focused: false,
 		valid: false,
 		validators: [required, length({ min: 5 })],
-		error: "Enter a password at least 5 characters long.",
+		error: "Введите пароль длиной не менее 5 символов.",
 	},
 };
 
@@ -251,7 +251,7 @@ class AuthForm extends Component {
 		const form = (
 			<div className={classes.formWrapper}>
 				<form className={classes.form} onSubmit={this.submitHandler}>
-					<h4>{this.props.isSignupForm ? "Sign up." : "Login."}</h4>
+					<h4>{this.props.isSignupForm ? "Регистрация." : "Логин."}</h4>
 					{controls &&
 						controls.map((ctrl) => (
 							<div className={classes.form__field} key={ctrl}>
@@ -275,7 +275,7 @@ class AuthForm extends Component {
 						))}
 					<div>
 						<Button type="submit" loading={this.state.loading}>
-							Submit
+							Отправить
 						</Button>
 					</div>
 				</form>

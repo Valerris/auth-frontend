@@ -18,15 +18,15 @@ class TodosForm extends Component {
 				config: {
 					type: "text",
 					name: "task",
-					placeholder: "Enter your task",
+					placeholder: "Введите вашу задачу",
 					value: "",
 				},
-				labelName: "Task",
+				labelName: "Задача",
 				touched: false,
 				focused: false,
 				valid: false,
 				validators: [required],
-				error: "Provide your task.",
+				error: "Введите вашу задачу.",
 			},
 		},
 		formIsValid: false,
@@ -152,7 +152,7 @@ class TodosForm extends Component {
 					))}
 					<div>
 						<Button type="submit" loading={this.state.loading}>
-							Submit
+							Отправить
 						</Button>
 					</div>
 				</form>

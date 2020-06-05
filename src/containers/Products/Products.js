@@ -7,27 +7,31 @@ const Products = (props) => {
 	const products = [
 		{
 			id: 1,
-			name: "Product 1",
+			name: "Продукт 1",
 			description:
 				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda a, totam porro doloribus aut magnam incidunt, et temporibus architecto nesciunt eveniet. Veritatis consequuntur dolorum est ipsum explicabo expedita iusto eius facere! Accusamus quo saepe eum labore ab maiores, voluptatum officia id nemo quaerat distinctio optio molestias cupiditate qui magni quam?",
 			price: 11.11,
 		},
 		{
 			id: 2,
-			name: "Product 1",
-			description: "Product description",
+			name: "Продукт 2",
+			description: "Описание продукта",
 			price: 22.22,
 		},
 		{
 			id: 3,
-			name: "Product 1",
-			description: "Product description",
+			name: "Продукт 3",
+			description: "Описание продукта",
 			price: 3.3,
 		},
 	];
 
-	return <ProductItems products={products} />;
-	// return <p>ProductItems there...</p>;
+	return (
+		<div>
+			<h1>Каталог продуктов</h1>
+			<ProductItems products={products} />
+		</div>
+	);
 };
 
 export default Products;

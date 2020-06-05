@@ -14,15 +14,15 @@ const TodosItems = ({ todos, loading }) => {
 				/>
 			))
 		) : (
-			<li>"No tasks yet."</li>
+			<li>"Вы ничего не спланировали ещё..."</li>
 		);
 
 	const UI = (
 		<div className={classes["list-wrapper-outer"]}>
 			<div className={classes["list-wrapper"]}>
-				<h5>Todos.</h5>
+				<h5>Задачи.</h5>
 				{loading ? (
-					<p>Loading...</p>
+					<p>Загрузка...</p>
 				) : (
 					<ul className={classes.list}>{todosList}</ul>
 				)}
