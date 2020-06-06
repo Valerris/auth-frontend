@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import classes from "./ProductItem.module.css";
 import config from "../../../config/config";
 import testImg from "./testimg.jpg";
+import truncateText from "../../../utils/truncateText";
 
 const productItem = ({ product }) => {
 	const productItem = (
@@ -19,7 +20,7 @@ const productItem = ({ product }) => {
 						{product.name}
 					</div>
 					<div className={classes.product__item__description}>
-						{product.description}
+						{truncateText(product.description, 45)}
 					</div>
 					<div className={classes.product__item__more}>Подробнее</div>
 				</div>

@@ -24,6 +24,24 @@ const Products = (props) => {
 			description: "Описание продукта",
 			price: 3.3,
 		},
+		{
+			id: 4,
+			name: "Продукт 4",
+			description: "Описание продукта",
+			price: 3.3,
+		},
+		{
+			id: 5,
+			name: "Продукт 5",
+			description: "Описание продукта",
+			price: 3.3,
+		},
+		{
+			id: 6,
+			name: "Продукт 6",
+			description: "Описание продукта",
+			price: 3.3,
+		},
 	];
 
 	return (

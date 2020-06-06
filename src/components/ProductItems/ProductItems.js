@@ -1,9 +1,10 @@
 import React from "react";
 import ProductItem from "./ProductItem/ProductItem";
+import classes from "./ProductItems.module.css";
 
 const productItems = ({ products }) => {
 	const productsList = (
-		<ul>
+		<ul className={classes.ProductItems}>
 			{products.map((product) => (
 				<ProductItem key={product.id} product={product} />
 			))}

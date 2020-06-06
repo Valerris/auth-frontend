@@ -8,12 +8,19 @@
 	transition: 0.125s ease;
 }
 
+@media (min-width: 40em) {
+	.product__item {
+		margin: 0;
+	}
+}
+
 .product__item:hover {
 	transform: scale(1.00625);
 	box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
 }
 
 .product__link {
+	height: 100%;
 	display: flex;
 	font-size: 1.25rem;
 	line-height: 1.6875rem;
@@ -33,7 +40,10 @@
 
 .product__item__info {
 	flex-grow: 1;
+	min-height: 100%;
 	padding: 2.0625rem 2rem 1.25rem;
+	display: flex;
+	flex-direction: column;
 }
 
 .product__item__name {
@@ -42,6 +52,7 @@
 }
 
 .product__item__description {
+	flex-grow: 1;
 	margin: 0 0 1.35rem;
 	font-size: 0.9rem;
 	line-height: 1.2rem;
