@@ -35,8 +35,8 @@ class App extends Component {
 				<Switch>
 					<Route path="/logout" component={Logout} />
 					<Route path="/profile" component={Profile} />
-					<Route path="/products" exact component={Products} />
 					<Route path="/products/product/:id" component={Product} />
+					<Route path="/products" component={Products} />
 					<Route path="/home" component={Main} />
 					<Redirect to="/home" />
 				</Switch>
