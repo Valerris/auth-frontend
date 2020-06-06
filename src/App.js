@@ -1,5 +1,10 @@
 import React, { Fragment, Component } from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import {
+	Switch,
+	Route,
+	Redirect,
+	withRouter,
+} from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./store/actions/index";
 import Main from "./containers/Main/Main";
@@ -9,6 +14,7 @@ import Toolbar from "./containers/Toolbar/Toolbar";
 import Layout from "./hoc/Layout/Layout";
 import Profile from "./containers/Profile/Profile";
 import Products from "./containers/Products/Products";
+import Product from "./containers/Products/Product/Product";
 
 class App extends Component {
 	componentDidMount() {
@@ -29,7 +35,8 @@ class App extends Component {
 				<Switch>
 					<Route path="/logout" component={Logout} />
 					<Route path="/profile" component={Profile} />
-					<Route path="/products" component={Products} />
+					<Route path="/products" exact component={Products} />
+					<Route path="/products/product/:id" component={Product} />
 					<Route path="/home" component={Main} />
 					<Redirect to="/home" />
 				</Switch>
@@ -52,4 +59,6 @@ const mapDispatchToProps = (dispatch) => ({
 	onAuthCheck: () => dispatch(actions.authCheck()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(
+	connect(mapStateToProps, mapDispatchToProps)(App)
+);

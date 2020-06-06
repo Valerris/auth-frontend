@@ -1,0 +1,43 @@
+.ProductCard {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	margin: 0 auto;
+	max-width: 30rem;
+	border-radius: 0.625rem;
+	background-color: #f1f1f1;
+	border-radius: 2rem;
+	box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
+
+.ProductCard__media {
+	height: 20rem;
+}
+
+.ProductCard__media > img {
+	display: block;
+	object-fit: cover;
+	object-position: center;
+	height: 10rem;
+}
+
+.ProductCard__info {
+	padding: 2.0625rem 2rem 1.25rem;
+}
+
+.ProductCard__name {
+	font-weight: bold;
+	margin: 0 0 0.75rem;
+}
+
+.ProductCard__description {
+	margin: 0 0 1.35rem;
+	font-size: 0.9rem;
+	line-height: 1.2rem;
+}
+
+.ProductCard__price {
+	color: #f8a170;
+	font-size: 1.125rem;
+	font-weight: 600;
+	text-transform: uppercase;
+}

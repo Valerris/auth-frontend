@@ -5,40 +5,43 @@ import config from "../../config/config";
  * General
  */
 
-const productsLoading = () => ({
-	type: actionTypes.PRODUCTS_LOADING,
+const productLoading = () => ({
+	type: actionTypes.PRODUCT_LOADING,
 });
 
-const productsFailed = () => ({
-	type: actionTypes.PRODUCTS_FAILED,
+const productFailed = () => ({
+	type: actionTypes.PRODUCT_FAILED,
 });
 
 /**
- * Get tasks
+ * Get products
  */
 
-const productsGetSuccess = (payload) => ({
-	type: actionTypes.TASK_GET_SUCCESS,
-	todos: payload,
+const productsSuccess = (payload) => ({
+	type: actionTypes.PRODUCTS_SUCCESS,
+	products: payload,
 });
 
 export const getProducts = (token) => async (dispatch) => {
-	dispatch(productsLoading());
+	dispatch(productLoading());
 
 	try {
-		const response = await fetch(config.server_url + "products", {
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-		});
+		const response = await fetch(
+			config.server_url + "products/list",
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
 
 		const data = await response.json();
 
-		dispatch(productsGetSuccess(data.tasks));
+		dispatch(productsSuccess(data.products));
 	} catch (error) {
 		console.log(error);
 
-		dispatch(productsFailed());
+		dispatch(productFailed());
 
 		return {
 			status: "error",
@@ -48,37 +51,38 @@ export const getProducts = (token) => async (dispatch) => {
 };
 
 /**
- *
- * POST task
+ * Get product
  */
 
-// const taskAddSuccess = (task) => ({
-// 	type: actionTypes.TASK_ADD_SUCCESS,
-// 	task: task,
-// });
+const productSuccess = (payload) => ({
+	type: actionTypes.PRODUCT_SUCCESS,
+	product: payload,
+});
 
-// export const addTask = (task, token) => async (dispatch) => {
-// 	try {
-// 		const response = await fetch(config.server_url + "todos/task", {
-// 			headers: {
-// 				"Content-Type": "application/json; charset=utf-8",
-// 				Authorization: `Bearer ${token}`,
-// 			},
-// 			method: "POST",
-// 			body: JSON.stringify(task),
-// 		});
+export const getProduct = (token, id) => async (dispatch) => {
+	dispatch(productLoading());
 
-// 		const data = await response.json();
+	try {
+		const response = await fetch(
+			config.server_url + "products/product/" + id,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+		);
 
-// 		dispatch(taskAddSuccess(data.task));
+		const data = await response.json();
 
-// 		return data;
-// 	} catch (error) {
-// 		console.log(error);
+		dispatch(productSuccess(data.product));
+	} catch (error) {
+		console.log(error);
 
-// 		return {
-// 			status: "error",
-// 			body: error.message,
-// 		};
-// 	}
-// };
+		dispatch(productFailed());
+
+		return {
+			status: "error",
+			body: error.message,
+		};
+	}
+};
