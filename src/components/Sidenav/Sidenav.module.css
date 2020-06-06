@@ -9,6 +9,14 @@
 	z-index: 90;
 }
 
+@media (min-width: 40em) {
+	.menu {
+		max-width: 20rem;
+		right: 0;
+		box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+	}
+}
+
 .menu__head {
 	display: flex;
 	padding: 0 0 0.75rem;

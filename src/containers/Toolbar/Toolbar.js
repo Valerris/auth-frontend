@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Button from "../../components/UI/Button/Button";
 import Sidenav from "../../components/Sidenav/Sidenav";
+import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import Logo from "../../components/UI/Logo/Logo";
 import classes from "./Toolbar.module.css";
 
@@ -29,7 +30,10 @@ class Toolbar extends Component {
 				</div>
 
 				{this.state.sidenavShow ? (
-					<Sidenav clicked={this.toggleSidenavHandler} />
+					<div>
+						<Backdrop clicked={this.toggleSidenavHandler} />
+						<Sidenav clicked={this.toggleSidenavHandler} />
+					</div>
 				) : null}
 			</Fragment>
 		);
