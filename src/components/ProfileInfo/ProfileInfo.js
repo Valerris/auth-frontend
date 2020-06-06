@@ -1,13 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
-import ProfileForm from "../../containers/forms/Profile/Profile";
 import classes from "./ProfileInfo.module.css";
+import avatar1 from "./avatar1.svg";
 
 const ProfileInfo = ({ profileInfo, postEdit }) => {
-	const { loadingInfo, loadingEdit } = useSelector(
-		(state) => state.profile
-	);
+	const { loadingInfo } = useSelector((state) => state.profile);
 
 	const UI = profileInfo ? (
 		<div className={classes["profileInfo-wrapper"]}>

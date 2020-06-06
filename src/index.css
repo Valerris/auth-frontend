@@ -19,6 +19,8 @@ body {
 	font-size: 0.9rem;
 	font-weight: 400;
 	background: #fff;
+	background-image: url("./background.svg");
+	background-repeat: no-repeat;
 	color: #393939;
 	overflow-x: hidden;
 	min-height: 100%;

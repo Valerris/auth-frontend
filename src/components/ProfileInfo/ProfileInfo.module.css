@@ -26,7 +26,11 @@
 	width: 9rem;
 	height: 9rem;
 	border-radius: 50%;
-	background-color: hsl(240, 1%, 78%);
+	background-color: #e2e2e2;
+	background-image: url("./avatar2.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 45%;
 	overflow: hidden;
 	position: relative;
 }
