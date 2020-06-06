@@ -10,6 +10,7 @@
 	background: #393939;
 	border-radius: 1.875rem;
 	padding: 2.5rem 1.25rem;
+	box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
 }
 
 .form__field {
