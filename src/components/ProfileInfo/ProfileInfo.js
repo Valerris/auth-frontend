@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import classes from "./ProfileInfo.module.css";
-import avatar1 from "./avatar1.svg";
 
 const ProfileInfo = ({ profileInfo, postEdit }) => {
 	const { loadingInfo } = useSelector((state) => state.profile);

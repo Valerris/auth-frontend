@@ -4,6 +4,7 @@
 	border-radius: 2rem;
 	margin: 0.75rem 0.25rem;
 	overflow: hidden;
+	animation: appear 0.5s ease forwards;
 	transform: scale(1);
 	transition: 0.125s ease;
 }
@@ -65,4 +66,13 @@
 
 .product__item:hover .product__item__more {
 	text-decoration: underline;
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }

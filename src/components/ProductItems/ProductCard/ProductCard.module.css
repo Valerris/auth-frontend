@@ -7,6 +7,7 @@
 	background-color: #f1f1f1;
 	border-radius: 2rem;
 	box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+	animation: appear 0.5s ease forwards;
 }
 
 .ProductCard__media {
@@ -40,4 +41,13 @@
 	font-size: 1.125rem;
 	font-weight: 600;
 	text-transform: uppercase;
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }

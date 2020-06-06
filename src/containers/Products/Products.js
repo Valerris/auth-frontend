@@ -5,19 +5,27 @@ import { getProducts } from "../../store/actions/index";
 
 const Products = (props) => {
 	const { token } = useSelector((state) => state.auth);
-	const { products } = useSelector((state) => state.products);
+	const { products, loading } = useSelector(
+		(state) => state.products
+	);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getProducts(token));
 	}, [dispatch, token]);
 
-	return (
+	const UI = (
 		<div>
 			<h1>Каталог продуктов</h1>
-			<ProductItems products={products} />
+			{loading ? (
+				<p>Загрузка...</p>
+			) : (
+				<ProductItems products={products} />
+			)}
 		</div>
 	);
+
+	return UI;
 };
 
 export default Products;
