@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Button from "../../components/UI/Button/Button";
 import Sidenav from "../../components/Sidenav/Sidenav";
+import Logo from "../../components/UI/Logo/Logo";
 import classes from "./Toolbar.module.css";
 
 class Toolbar extends Component {
@@ -18,7 +19,7 @@ class Toolbar extends Component {
 		return (
 			<Fragment>
 				<div className={classes.toolbar}>
-					<div>Logo</div>
+					<Logo />
 
 					<Button
 						className={["button--burger"]}

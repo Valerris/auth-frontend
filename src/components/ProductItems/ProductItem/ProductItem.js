@@ -15,11 +15,13 @@ const productItem = ({ product }) => {
 					<img src={testImg} alt="" />
 				</div>
 				<div className={classes.product__item__info}>
-					<div className={classes.product__item__name}>{product.name}</div>
+					<div className={classes.product__item__name}>
+						{product.name}
+					</div>
 					<div className={classes.product__item__description}>
 						{product.description}
 					</div>
-					<div className={classes.product__item__price}>{product.price} $</div>
+					<div className={classes.product__item__more}>Подробнее</div>
 				</div>
 			</Link>
 		</li>

@@ -53,7 +53,7 @@ const sidenav = ({ isAuth, clicked }) => {
 	const sidenav = (
 		<div className={classes.menu} onClick={toggleSidenavHandler}>
 			<div className={classes.menu__head}>
-				<h4>Menu.</h4>
+				<h4>Меню.</h4>
 				<Button className={["button--close"]} clicked={clicked}>
 					Close
 				</Button>
@@ -62,7 +62,10 @@ const sidenav = ({ isAuth, clicked }) => {
 		</div>
 	);
 
-	return createPortal(sidenav, document.querySelector("#sidenav-root"));
+	return createPortal(
+		sidenav,
+		document.querySelector("#sidenav-root")
+	);
 };
 
 const mapStateToProps = (state) => ({
