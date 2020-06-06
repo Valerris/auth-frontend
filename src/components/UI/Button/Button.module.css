@@ -1,10 +1,10 @@
 .button {
 	appearance: none;
-	font-size: 1rem;
+	font-size: 1.125rem;
 	line-height: 2.0625rem;
 	font-family: Rubik, "Helvetica Neue", sans-serif;
 	font-weight: 500;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	color: #fff;
 	background: linear-gradient(99.42deg, #f8a170 14.73%, #ffcd61 97.52%);
 	padding: 0.625rem 3.5rem;
