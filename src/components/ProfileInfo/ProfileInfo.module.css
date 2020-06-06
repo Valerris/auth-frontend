@@ -8,6 +8,7 @@
 	padding: 2.5rem 1rem;
 	font-size: 1.125rem;
 	margin: auto;
+	min-width: 0;
 }
 
 @media (min-width: 40em) {
@@ -27,7 +28,7 @@
 	height: 9rem;
 	border-radius: 50%;
 	background-color: #e2e2e2;
-	background-image: url("./avatar2.svg");
+	background-image: url("./user.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 45%;

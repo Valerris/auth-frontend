@@ -1,0 +1,17 @@
+.section {
+	background: transparent right center/contain no-repeat;
+}
+
+.section > p:last-of-type {
+	margin-bottom: 3rem;
+}
+
+.section-1 {
+	background-image: url("./problem_solving.svg");
+}
+
+@media (min-width: 64em) {
+	.section-1 {
+		padding: 2rem 23rem 10rem 0;
+	}
+}

@@ -42,9 +42,16 @@
 .product__item__info {
 	flex-grow: 1;
 	min-height: 100%;
-	padding: 2.0625rem 2rem 1.25rem;
+	padding: 1.5rem 1.25rem;
 	display: flex;
 	flex-direction: column;
+}
+
+@media (min-width: 40em) {
+	.product__item__info {
+		padding: 2.0625rem 2rem 1.25rem;
+		height: auto;
+	}
 }
 
 .product__item__name {

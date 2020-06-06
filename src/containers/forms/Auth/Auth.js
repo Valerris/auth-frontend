@@ -5,7 +5,11 @@ import Button from "../../../components/UI/Button/Button";
 import updateObject from "../../../utils/updateObj";
 import collectData from "../../../utils/forms/collectData";
 // import clearForm from "../../../utils/forms/clearForm";
-import { required, length, email } from "../../../utils/forms/validators";
+import {
+	required,
+	length,
+	email,
+} from "../../../utils/forms/validators";
 import fieldValidation from "../../../utils/forms/fieldValidation";
 import formValidation from "../../../utils/forms/formValidation";
 import classes from "../Form.module.css";
@@ -170,7 +174,10 @@ class AuthForm extends Component {
 			}),
 		});
 
-		let formValidity = formValidation(updatedControls, this.getControls());
+		let formValidity = formValidation(
+			updatedControls,
+			this.getControls()
+		);
 
 		this.setState({
 			controls: updatedControls,
@@ -181,15 +188,22 @@ class AuthForm extends Component {
 	submitHandler = async (e) => {
 		e.preventDefault();
 
-		if (!this.state.formIsValid) return console.log("Incorrect form fields.");
+		if (!this.state.formIsValid)
+			return console.log("Incorrect form fields.");
 
 		this.setState({
 			loading: true,
 		});
 
-		const formData = collectData(this.getControls(), this.state.controls);
+		const formData = collectData(
+			this.getControls(),
+			this.state.controls
+		);
 
-		const result = await this.props.postAuth(formData, this.props.isSignupForm);
+		const result = await this.props.postAuth(
+			formData,
+			this.props.isSignupForm
+		);
 
 		result && console.log("[Result]: ", result);
 
@@ -251,7 +265,9 @@ class AuthForm extends Component {
 		const form = (
 			<div className={classes.formWrapper}>
 				<form className={classes.form} onSubmit={this.submitHandler}>
-					<h4>{this.props.isSignupForm ? "Регистрация." : "Логин."}</h4>
+					<h4>
+						{this.props.isSignupForm ? "Регистрация." : "Логин."}
+					</h4>
 					{controls &&
 						controls.map((ctrl) => (
 							<div className={classes.form__field} key={ctrl}>
@@ -274,7 +290,11 @@ class AuthForm extends Component {
 							</div>
 						))}
 					<div>
-						<Button type="submit" loading={this.state.loading}>
+						<Button
+							type="submit"
+							className={["form__button"]}
+							loading={this.state.loading}
+						>
 							Отправить
 						</Button>
 					</div>
