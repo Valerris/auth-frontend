@@ -61,7 +61,10 @@
 }
 
 .button--close,
-.button--burger {
+.button--burger,
+.button--cart,
+.button--plus,
+.button--minus {
 	width: 2rem;
 	height: 2rem;
 	min-height: 2rem;
@@ -78,6 +81,22 @@
 .button--burger::before {
 	background-image: url("./burger.svg");
 	background-size: 50%;
+}
+
+.button--plus::before {
+	background-image: url("./plus.svg");
+	background-size: 50%;
+}
+
+.button--minus::before {
+	background-image: url("./minus.svg");
+	background-size: 50%;
+}
+
+.button--cart::before {
+	background-image: url("./cart.svg");
+	background-size: 65%;
+	background-position: 65% center;
 }
 
 .button--close-modal {

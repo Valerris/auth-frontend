@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { withRouter } from "react-router-dom";
 import Button from "../../components/UI/Button/Button";
 import Sidenav from "../../components/Sidenav/Sidenav";
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
@@ -21,12 +22,20 @@ class Toolbar extends Component {
 			<Fragment>
 				<div className={classes.toolbar}>
 					<Logo />
-
-					<Button
-						className={["button--burger"]}
-						type="button"
-						clicked={this.toggleSidenavHandler}
-					></Button>
+					<div className={classes.toolbar__ctrls}>
+						<Button
+							className={["button--cart"]}
+							type="button"
+							clicked={() => {
+								this.props.history.push("/cart");
+							}}
+						></Button>
+						<Button
+							className={["button--burger"]}
+							type="button"
+							clicked={this.toggleSidenavHandler}
+						></Button>
+					</div>
 				</div>
 
 				{this.state.sidenavShow ? (
@@ -40,4 +49,4 @@ class Toolbar extends Component {
 	}
 }
 
-export default Toolbar;
+export default withRouter(Toolbar);

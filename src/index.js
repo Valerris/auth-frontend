@@ -17,6 +17,7 @@ import authReducer from "./store/reducers/auth";
 import todosReducer from "./store/reducers/todos";
 import profileReducer from "./store/reducers/profile";
 import productsReducer from "./store/reducers/products";
+import cartReducer from "./store/reducers/cart";
 import errorReducer from "./store/reducers/error";
 
 const composeEnhancers =
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
 	todos: todosReducer,
 	profile: profileReducer,
 	products: productsReducer,
+	cart: cartReducer,
 	error: errorReducer,
 });
 

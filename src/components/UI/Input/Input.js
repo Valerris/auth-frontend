@@ -10,6 +10,7 @@ const input = ({
 	focused,
 	error,
 	label,
+	options,
 }) => {
 	let input = null;
 	const clses = [classes.input];
@@ -19,6 +20,21 @@ const input = ({
 	}
 
 	switch (config.type) {
+		case "select":
+			input = (
+				<select
+					className={clses.join(" ")}
+					id={config.name}
+					{...config}
+					onChange={changed}
+				>
+					{options &&
+						options.map((opt) => (
+							<option value={opt.value}>{opt.name}</option>
+						))}
+				</select>
+			);
+			break;
 		default:
 			input = (
 				<input

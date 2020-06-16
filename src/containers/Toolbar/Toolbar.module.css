@@ -3,7 +3,13 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 1.25rem;
-	background: rgba(203, 203, 212, 0.2);
+	background: rgba(123, 123, 124, 0.2);
 	border-radius: 0 0 0.25rem 0.25rem;
 	box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
+
+.toolbar__ctrls {
+	display: flex;
+	width: 4.5rem;
+	justify-content: space-between;
 }

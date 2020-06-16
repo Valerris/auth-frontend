@@ -15,6 +15,7 @@ import Layout from "./hoc/Layout/Layout";
 import Profile from "./containers/Profile/Profile";
 import Products from "./containers/Products/Products";
 import Product from "./containers/Products/Product/Product";
+import Cart from "./containers/Cart/Cart";
 
 class App extends Component {
 	componentDidMount() {
@@ -37,6 +38,7 @@ class App extends Component {
 					<Route path="/profile" component={Profile} />
 					<Route path="/products/product/:id" component={Product} />
 					<Route path="/products" component={Products} />
+					<Route path="/cart" component={Cart} />
 					<Route path="/home" component={Main} />
 					<Redirect to="/home" />
 				</Switch>

@@ -5,7 +5,7 @@
 }
 
 .input {
-	color: #000;
+	color: #191919;
 	background-color: rgb(223, 222, 222, 0.95);
 	font-size: inherit;
 	line-height: 1.375rem;
@@ -15,8 +15,12 @@
 	caret-color: #f8a170;
 }
 
+.input[type="select"] {
+	padding: 0.25rem;
+}
+
 .input:focus {
-	color: #fff;
+	/* color: #fff; */
 	border-color: #f8a170;
 	box-shadow: 0 0 0 2px #ffcd61, 0 0 0 4px rgb(223, 222, 222, 0.2);
 }

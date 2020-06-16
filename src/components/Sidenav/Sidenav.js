@@ -30,6 +30,10 @@ const links = [
 		name: "Продукты",
 	},
 	{
+		href: "/cart",
+		name: "Корзина",
+	},
+	{
 		href: "/profile",
 		name: "Профиль",
 	},
