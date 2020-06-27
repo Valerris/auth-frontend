@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Button from "../../UI/Button/Button";
 import Input from "../../UI/Input/Input";
 import totalPrices from "../../../utils/totalPrices";
+import config from "../../../config/config.js";
 import classes from "./ProductCard.module.css";
-import testImg from "../testimg.jpg";
 
-const prices = {
-	"150": "930.00",
-	"170": "1020.00",
-	"200": "1200.00",
-};
-
-const ProductCard = ({ product, add }) => {
+const ProductCard = ({
+	product,
+	add,
+	sizeSelected,
+	colorSelected,
+	setSizeSelected,
+}) => {
 	var settings = {
 		dots: true,
 		autoplay: true,
@@ -26,34 +26,38 @@ const ProductCard = ({ product, add }) => {
 		slidesToScroll: 1,
 	};
 
-	const [price, setPrice] = useState("930.00");
-
 	const sizeSelection = (e) => {
-		console.log(totalPrices);
-
-		setPrice(() => prices[e.target.value]);
+		setSizeSelected(e.target.value);
 	};
 
 	const UI = product && (
 		<div id={product._id} className={classes.ProductCard}>
 			{/* <div className={classes.ProductCard__media}> */}
-			<Slider {...settings}>
-				<img src={testImg} alt="" />
-				<img src={testImg} alt="" />
-				<img src={testImg} alt="" />
-			</Slider>
+			{product.images && (
+				<Slider {...settings}>
+					{product.images.map((el) => (
+						<img src={config.server_url + el} alt={product.name} />
+					))}
+				</Slider>
+			)}
 			{/* </div> */}
 			<div className={classes.ProductCard__info}>
 				<div className={classes.ProductCard__name}>
 					{product.name}
 				</div>
-				<div className={classes.ProductCard__description}>
-					{product.description}
+				<div
+					className={classes.ProductCard__description}
+					dangerouslySetInnerHTML={{ __html: product.description }}
+				>
+					{/* {product.description} */}
 				</div>
 				<div className={classes.ProductCard__field}>
 					<div className={classes.ProductCard__price}>
 						<p>Цена</p>
-						{price} ₽
+						{!sizeSelected
+							? product.prices[Object.keys(product.prices)[0]]
+							: product.prices[sizeSelected]}{" "}
+						₽
 					</div>
 					<div>
 						<Input
@@ -62,20 +66,11 @@ const ProductCard = ({ product, add }) => {
 								type: "select",
 							}}
 							label={{ name: "Размер" }}
-							options={[
-								{
-									value: "150",
-									name: "150x150",
-								},
-								{
-									value: "170",
-									name: "170x170",
-								},
-								{
-									value: "200",
-									name: "200x200",
-								},
-							]}
+							selected={sizeSelected}
+							options={Object.keys(product.prices).map((el) => ({
+								name: el,
+								value: el,
+							}))}
 							changed={sizeSelection}
 						/>
 					</div>
@@ -85,7 +80,7 @@ const ProductCard = ({ product, add }) => {
 					className={["form__button"]}
 					clicked={() => {
 						add(product._id);
-						totalPrices[+price] += 1;
+						// totalPrices[+price] += 1;
 					}}
 				>
 					В корзину

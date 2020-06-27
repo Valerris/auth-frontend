@@ -8,7 +8,7 @@ import {
 	addCartItem,
 } from "../../../store/actions/index";
 
-const Product = () => {
+const Product = (props) => {
 	const [showModal, toggleShowModal] = useState(false);
 	const { token } = useSelector((state) => state.auth);
 	const { product, loading } = useSelector((state) => state.products);
@@ -35,7 +35,13 @@ const Product = () => {
 		product && (
 			<div>
 				<h1>{product.name}</h1>
-				<ProductCard product={product} add={addItem} />
+				<ProductCard
+					product={product}
+					add={addItem}
+					sizeSelected={props.sizeSelected}
+					colorSelected={props.colorSelected}
+					setSizeSelected={props.setSizeSelected}
+				/>
 				{showModal && (
 					<Modal title={product.name} clicked={toggleModal}>
 						Продукт добавлен в корзину

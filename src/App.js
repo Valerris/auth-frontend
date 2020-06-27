@@ -16,11 +16,39 @@ import Profile from "./containers/Profile/Profile";
 import Products from "./containers/Products/Products";
 import Product from "./containers/Products/Product/Product";
 import Cart from "./containers/Cart/Cart";
+import Calc from "./containers/Calc/Calc";
 
 class App extends Component {
+	state = {
+		sizeSelected: "",
+		colorSelected: "",
+		materialSelected: "",
+	};
+
 	componentDidMount() {
 		this.props.onAuthCheck();
 	}
+
+	setSizeSelected = (val) => {
+		this.setState({
+			...this.state,
+			sizeSelected: val,
+		});
+	};
+
+	setColorSelected = (val) => {
+		this.setState({
+			...this.state,
+			colorSelected: val,
+		});
+	};
+
+	setMaterialSelected = (val) => {
+		this.setState({
+			...this.state,
+			materialSelected: val,
+		});
+	};
 
 	render() {
 		let routes = (
@@ -36,8 +64,32 @@ class App extends Component {
 				<Switch>
 					<Route path="/logout" component={Logout} />
 					<Route path="/profile" component={Profile} />
-					<Route path="/products/product/:id" component={Product} />
+					<Route
+						path="/products/product/:id"
+						render={(props) => (
+							<Product
+								sizeSelected={this.state.sizeSelected}
+								colorSelected={this.state.colorSelected}
+								setSizeSelected={this.setSizeSelected}
+								{...props}
+							/>
+						)}
+					/>
 					<Route path="/products" component={Products} />
+					<Route
+						path="/calc"
+						render={(props) => (
+							<Calc
+								sizeSelected={this.state.sizeSelected}
+								colorSelected={this.state.colorSelected}
+								materialSelected={this.state.materialSelected}
+								setSizeSelected={this.setSizeSelected}
+								setColorSelected={this.setColorSelected}
+								setMaterialSelected={this.setMaterialSelected}
+								{...props}
+							/>
+						)}
+					/>
 					<Route path="/cart" component={Cart} />
 					<Route path="/home" component={Main} />
 					<Redirect to="/home" />

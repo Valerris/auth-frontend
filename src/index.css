@@ -52,19 +52,23 @@ input {
 	background: none;
 	border: none;
 	display: block;
-	outline: none;
-	-moz-outline: none;
-	-webkit-outline: none;
-	-o-outline: none;
-	-ms-outline: none;
 }
 
+input,
+select,
+button,
 input:focus,
-button:focus {
-	outline: none;
+select:focus,
+button:focus,
+input:active,
+select:active button:active,
+object,
+embed {
+	outline: 0;
 }
 
 input::-moz-focus-inner,
+select::-moz-focus-inner,
 button::-moz-focus-inner {
 	border: 0;
 }

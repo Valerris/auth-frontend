@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./ProductItem.module.css";
+import config from "../../../config/config.js";
 import testImg from "../testimg.jpg";
 import truncateText from "../../../utils/truncateText";
 
@@ -12,7 +13,10 @@ const productItem = ({ product }) => {
 				to={`/products/product/${product._id}`}
 			>
 				<div className={classes.product__item__media}>
-					<img src={testImg} alt="" />
+					<img
+						src={config.server_url + product.image_url}
+						alt={product.name}
+					/>
 				</div>
 				<div className={classes.product__item__info}>
 					<div className={classes.product__item__name}>

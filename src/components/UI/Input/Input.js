@@ -10,6 +10,7 @@ const input = ({
 	focused,
 	error,
 	label,
+	selected,
 	options,
 }) => {
 	let input = null;
@@ -26,11 +27,14 @@ const input = ({
 					className={clses.join(" ")}
 					id={config.name}
 					{...config}
+					value={selected ? selected : ""}
 					onChange={changed}
 				>
 					{options &&
 						options.map((opt) => (
-							<option value={opt.value}>{opt.name}</option>
+							<option key={opt.value} value={opt.value}>
+								{opt.name}
+							</option>
 						))}
 				</select>
 			);
