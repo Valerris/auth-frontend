@@ -12,6 +12,7 @@ const Products = (props) => {
 
 	useEffect(() => {
 		dispatch(getProducts(token));
+		props.setSizeSelected("");
 	}, [dispatch, token]);
 
 	const UI = (

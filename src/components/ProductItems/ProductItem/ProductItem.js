@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./ProductItem.module.css";
 import config from "../../../config/config.js";
-import testImg from "../testimg.jpg";
 import truncateText from "../../../utils/truncateText";
 
 const productItem = ({ product }) => {

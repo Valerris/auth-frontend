@@ -60,22 +60,22 @@ const Calc = (props) => {
 	const UI = (
 		<div>
 			<h1>Прайс лист.</h1>
-			<div
-				style={{
-					margin: "0 0 2.5rem",
-				}}
-			>
+			{sizes && (
 				<div
 					style={{
-						margin: "0 0 1.25rem",
+						margin: "0 0 2.5rem",
 					}}
 				>
 					<div
 						style={{
-							margin: "0 0 0.75rem",
+							margin: "0 0 1.25rem",
 						}}
 					>
-						{sizes && (
+						<div
+							style={{
+								margin: "0 0 0.75rem",
+							}}
+						>
 							<Input
 								config={{
 									name: "selectSize",
@@ -90,96 +90,96 @@ const Calc = (props) => {
 									props.setSizeSelected(e.target.value);
 								}}
 							/>
-						)}
-					</div>
-					<div
-						style={{
-							margin: "0 0 0.75rem",
-						}}
-					>
-						<Input
-							config={{
-								name: "selectColor",
-								type: "select",
+						</div>
+						<div
+							style={{
+								margin: "0 0 0.75rem",
 							}}
-							label={{ name: "Цвет" }}
-							selected={props.colorSelected}
-							options={[
-								{
-									name: "Выберите цвет",
-									value: "",
-								},
-								{
-									name: "Белый",
-									value: "белый",
-								},
-								{
-									name: "Медный",
-									value: "медный",
-								},
-								{
-									name: "Серебряный",
-									value: "серебряный",
-								},
-								{
-									name: "Золотистый",
-									value: "золотистый",
-								},
-							]}
-							changed={function (e) {
-								// setBtnClicked(false);
-								// setColorSelected(e.target.value);
-								props.setColorSelected(e.target.value);
-							}}
-						/>
+						>
+							<Input
+								config={{
+									name: "selectColor",
+									type: "select",
+								}}
+								label={{ name: "Цвет" }}
+								selected={props.colorSelected}
+								options={[
+									{
+										name: "Выберите цвет",
+										value: "",
+									},
+									{
+										name: "Белый",
+										value: "белый",
+									},
+									{
+										name: "Медный",
+										value: "медный",
+									},
+									{
+										name: "Серебряный",
+										value: "серебряный",
+									},
+									{
+										name: "Золотистый",
+										value: "золотистый",
+									},
+								]}
+								changed={function (e) {
+									// setBtnClicked(false);
+									// setColorSelected(e.target.value);
+									props.setColorSelected(e.target.value);
+								}}
+							/>
+						</div>
+						<div>
+							<Input
+								config={{
+									name: "selectMaterial",
+									type: "select",
+								}}
+								label={{ name: "Материал" }}
+								selected={props.materialSelected}
+								options={[
+									{
+										name: "Выберите цвет",
+										value: "",
+									},
+									{
+										name: "Пластмасса",
+										value: "пластмасса",
+									},
+									{
+										name: "Сталь",
+										value: "сталь",
+									},
+								]}
+								changed={function (e) {
+									// setBtnClicked(false);
+									// setColorSelected(e.target.value);
+									props.setMaterialSelected(e.target.value);
+								}}
+							/>
+						</div>
 					</div>
 					<div>
-						<Input
-							config={{
-								name: "selectMaterial",
-								type: "select",
+						<Button
+							style={{
+								fontSize: "0.85rem",
+								lineHeight: "1rem",
+								minHeight: "auto",
+								borderRadius: "0.125rem",
 							}}
-							label={{ name: "Материал" }}
-							selected={props.materialSelected}
-							options={[
-								{
-									name: "Выберите цвет",
-									value: "",
-								},
-								{
-									name: "Пластмасса",
-									value: "пластмасса",
-								},
-								{
-									name: "Сталь",
-									value: "сталь",
-								},
-							]}
-							changed={function (e) {
-								// setBtnClicked(false);
-								// setColorSelected(e.target.value);
-								props.setMaterialSelected(e.target.value);
+							type="submit"
+							clicked={(e) => {
+								fetchPds();
 							}}
-						/>
+						>
+							Найти
+						</Button>
 					</div>
 				</div>
-				<div>
-					<Button
-						style={{
-							fontSize: "0.85rem",
-							lineHeight: "1rem",
-							minHeight: "auto",
-							borderRadius: "0.125rem",
-						}}
-						type="submit"
-						clicked={(e) => {
-							fetchPds();
-						}}
-					>
-						Найти
-					</Button>
-				</div>
-			</div>
+			)}
 			{btnClicked &&
 			(props.sizeSelected ||
 				props.colorSelected ||

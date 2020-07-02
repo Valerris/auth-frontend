@@ -75,7 +75,15 @@ class App extends Component {
 							/>
 						)}
 					/>
-					<Route path="/products" component={Products} />
+					<Route
+						path="/products"
+						render={(props) => (
+							<Products
+								setSizeSelected={this.setSizeSelected}
+								{...props}
+							/>
+						)}
+					/>
 					<Route
 						path="/calc"
 						render={(props) => (
