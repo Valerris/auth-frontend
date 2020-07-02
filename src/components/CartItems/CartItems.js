@@ -4,11 +4,11 @@ import totalPrices from "../../utils/totalPrices";
 import classes from "./CartItems.module.css";
 
 const cartItems = ({ products, add, remove }) => {
-	let total = 0;
+	// let total = 0;
 
-	Object.keys(totalPrices).forEach((el) => {
-		total += +el * totalPrices[+el];
-	});
+	// Object.keys(totalPrices).forEach((el) => {
+	// 	total += +el * totalPrices[+el];
+	// });
 
 	const UI = (
 		<ul className={classes.CartItems}>
@@ -20,9 +20,7 @@ const cartItems = ({ products, add, remove }) => {
 					remove={remove}
 				/>
 			))}
-			<p>
-				<bold>Итого: {`${total} ₽`}</bold>
-			</p>
+			{/* <p>Итого: {`${total} ₽`}</p> */}
 		</ul>
 	);
 
